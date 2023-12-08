@@ -12,7 +12,14 @@ using namespace std;
 	cout << "05. Telor Bebek		: Rp. 30.000	" << " 	10. Selesai " << endl;
 	cout << " ======================================================================================== " << endl << endl;
 	cout << "UNTUK MEMILIH BARANG YANG AKAN DIBELI SILAKAN MASUKAN KODE BARANG DAN KLIK 10 UNTUK MENGAKHIRI PESANAN"<< endl << endl;
-    }
+    } void potongan() {
+    		cout << " ======================================================================================== " << endl << endl;
+    	cout << "ADA DISKON YANG MENARIK LOH! " <<  endl;
+    	cout << "Setiap pembelian barang lebih dari Rp. 25.000 akan mendapat Diskon 2% " << endl;
+    	cout << "Setiap pembelian barang lebih dari Rp. 50.000 akan mendapat Diskon 4% " << endl;
+    	cout << "Setiap pembelian barang lebih dari Rp. 100.000 akan mendapat Diskon 6% " << endl;
+    		cout << " ======================================================================================== " << endl << endl;
+	}
 int main(){
 	char pembeli[30];
 	int kode_barang, jml_barang, harga, total, bayar, diskon;
@@ -20,6 +27,7 @@ int main(){
 	
 	awal:
 	perkenalan();
+	 potongan();
 		cout << "SEBELUM MELAKUKAN PEMESANAN MASUKAN NAMA PANGGILAN ANDA DIBAWAH INI" << endl;
 	    cout << "NAMA PEMBELI	: ";
 	    cin >> pembeli;
@@ -122,12 +130,12 @@ int main(){
 				cout << "===========================================" << endl;
 				cout << "Struk Pembayaran" << endl;
 				cout << "===========================================" << endl;
-				cout << "Nama Pembeli 	: " << pembeli << endl;
+				cout << "Nama Pembeli 	    : " << pembeli << endl;
 				cout << "Total Harga	    : " << total << endl;
 				cout << "Total Diskon 	    : " << diskon << endl;
 				cout << "Total Bayar 	    : " << total - diskon << endl;
-				cout << "Bayar 			  : " << bayar << endl;
-				cout << "kembalian	 	  : " << (bayar - (total-diskon)) << endl;
+				cout << "Bayar		    : " << bayar << endl;
+				cout << "kembalian	    : " << (bayar - (total-diskon)) << endl;
 				cout << "Terima Kasih Udah Belanja ditoko kami ditunggu kedatangannya lagi" << endl;
 				break;
 				
@@ -136,5 +144,15 @@ int main(){
 				break;
 		}
 	} while(kode_barang != 10);
-		
+	cout << "Apakah Anda ingin melakukan transaksi lagi? (1: Ya, 0: Tidak): ";
+int transaksi_lagi;
+cin >> transaksi_lagi;
+if (transaksi_lagi == 0) {
+    cout << "Terima kasih. Program selesai." << endl;
+    return 0;
+} else {
+    total = 0;
+    item = "";
+    goto awal; //  Untuk Kembali ke awal program
+}
 }
